@@ -1,8 +1,13 @@
 <p align="center">
-<img src="https://img.shields.io/badge/Windows-11-blue?logo=windows">
-<img src="https://img.shields.io/badge/PowerShell-5.1-blue?logo=powershell">
-<img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow">
-<img src="https://img.shields.io/badge/License-MIT-green">
+
+<img src="https://img.shields.io/badge/Windows%2011-D5A6BD?style=for-the-badge&logo=windows&logoColor=white">
+
+<img src="https://img.shields.io/badge/PowerShell%205.1-D5A6BD?style=for-the-badge&logo=powershell&logoColor=white">
+
+<img src="https://img.shields.io/badge/Status-In%20Progress-D5A6BD?style=for-the-badge">
+
+<img src="https://img.shields.io/badge/License-MIT-D5A6BD?style=for-the-badge">
+
 </p>
 
 # 🖥️ Windows Troubleshooting Guide
