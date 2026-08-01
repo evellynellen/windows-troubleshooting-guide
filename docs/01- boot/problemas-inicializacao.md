@@ -1,39 +1,123 @@
-# 🖤 Tela Preta (Black Screen)
+# Problemas de Inicialização
 
-## 📌 Problema
+## Problema
 
-A Tela Preta (Black Screen) ocorre quando o Windows liga, mas o monitor não exibe nada além de uma tela preta — com ou sem cursor do mouse visível. Diferente da Tela Azul, geralmente não aparece nenhum código de erro, o que torna o diagnóstico um pouco mais indireto.
+O Windows não inicializa corretamente ou não consegue concluir o processo de boot. O problema pode se manifestar de diferentes formas, como travamento na tela de carregamento, reinicializações em loop, tela preta antes da área de trabalho ou falha na inicialização automática.
 
----
-
-## 👤 Sintomas
-
-O usuário pode relatar:
-
-- A tela fica completamente preta após ligar o computador.
-- É possível ver o cursor do mouse se movendo, mas nada mais aparece.
-- A tela preta acontece depois de uma atualização do Windows ou de drivers de vídeo.
-- O computador parece ligado (ventoinha funcionando, luzes acesas), mas o monitor não mostra nada.
-- A tela fica preta por alguns segundos e depois volta ao normal.
+Esses sintomas podem estar relacionados a arquivos do sistema corrompidos, falhas de hardware, drivers incompatíveis, atualizações malsucedidas ou configurações incorretas de inicialização.
 
 ---
 
-## 🔍 Possíveis causas
+## Sintomas
 
-- Driver de vídeo (placa de vídeo) corrompido, desatualizado ou incompatível.
-- Monitor não detectado corretamente ou cabo de vídeo com mau contato.
-- Atualização do Windows com falha, travada em segundo plano.
-- Processo do Explorador de Arquivos (`explorer.exe`) travado ou não iniciado.
-- Múltiplos monitores com a saída de vídeo configurada para o monitor errado.
-- Placa de vídeo com defeito ou superaquecendo.
+O problema pode se manifestar de uma ou mais das seguintes formas:
+
+- O computador trava na tela com o logotipo do fabricante (Dell, Lenovo, HP etc.) ou no logotipo do Windows.
+- O sistema reinicia repetidamente antes de concluir a inicialização (boot loop).
+- Tela preta antes da área de trabalho, com ou sem cursor do mouse.
+- O Windows entra em **Reparo Automático** continuamente sem concluir a inicialização.
+- Mensagens como **"Preparando Reparo Automático"**, **"Diagnosticando seu computador"** ou **"Reparando unidade"** permanecem indefinidamente.
+- A inicialização demora excessivamente ou não é concluída.
+- O computador permanece congelado durante o processo de boot.
+- 
+---
+
+## Possíveis causas
+
+- Arquivos de inicialização do Windows (BCD, Boot Manager ou MBR/GPT) corrompidos ou ausentes.
+- Atualização do Windows interrompida ou malsucedida.
+- Arquivos do sistema corrompidos.
+- Disco rígido (HD) ou SSD com setores defeituosos ou falha iminente.
+- Alterações recentes de hardware, como componentes mal conectados ou incompatíveis.
+- Drivers incompatíveis ou corrompidos que impedem a inicialização do sistema.
+- Configurações incorretas de BIOS/UEFI ou ordem de boot inadequada.
+- Malware que comprometeu o processo de inicialização do Windows.
+---
+
+## Diagnóstico
+
+### 1. Confirmar se o equipamento está energizado
+
+Verifique se o computador foi ligado corretamente e se apresenta sinais de funcionamento:
+
+- LEDs de energia acesos;
+- Ventoinhas em funcionamento;
+- Sons de inicialização (POST ou login do Windows);
+- Atividade no disco (LED de armazenamento, quando disponível).
+
+Essas verificações ajudam a determinar se o problema está relacionado à inicialização do sistema operacional ou a uma falha de hardware (fonte de alimentação, placa-mãe ou outros componentes).
 
 ---
 
-## 🛠️ Diagnóstico
+### 2. Verificar o monitor e as conexões
 
-### 1. Confirmar se o computador realmente ligou
+- Confirme se o monitor está ligado.
+- Verifique se o cabo HDMI, DisplayPort, VGA ou DVI está corretamente conectado.
+- Teste outro cabo ou outro monitor, se possível.
 
-Observe se há sons de inicialização, luzes do gabinete/notebook acesas e ventoinha girando. Isso ajuda a diferenciar um problema de vídeo de um problema de hardware mais grave (fonte, placa-mãe).
+---
+
+### 3. Verificar se há mensagens de erro
+
+Observe se durante a inicialização aparecem mensagens como:
+
+- "Preparing Automatic Repair"
+- "Diagnosing your PC"
+- "No Bootable Device"
+- "Operating System not found"
+
+Essas mensagens fornecem indícios sobre a origem do problema.
+
+---
+
+### 4. Acessar o Ambiente de Recuperação do Windows (WinRE)
+
+Caso o Windows não inicialize normalmente, interrompa a inicialização três vezes consecutivas para acessar o **Windows Recovery Environment (WinRE)**.
+
+No ambiente de recuperação, utilize as opções de:
+
+- Reparo de Inicialização;
+- Restauração do Sistema;
+- Prompt de Comando;
+- Desinstalação de atualizações recentes.
+
+---
+
+### 5. Verificar a integridade do disco
+
+No Prompt de Comando do WinRE, execute:
+
+```cmd
+chkdsk C: /f
+```
+
+para identificar e corrigir erros no sistema de arquivos.
+
+---
+
+### 6. Verificar arquivos do sistema
+
+Ainda no Prompt de Comando, execute:
+
+```cmd
+sfc /scannow
+```
+
+Se necessário:
+
+```cmd
+DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+---
+
+### 7. Verificar configurações de boot
+
+Acesse a BIOS/UEFI e confirme:
+
+- Se o SSD/HD é reconhecido.
+- Se a ordem de inicialização (Boot Order) está correta.
+- Se não houve alterações recentes nas configurações de inicialização.
 
 ---
 
@@ -93,35 +177,103 @@ Procure eventos relacionados a driver de vídeo (geralmente da origem `nvlddmkm`
 
 ---
 
-## ✅ Possíveis soluções
+## Possíveis soluções
 
-- Atualizar ou reinstalar o driver de vídeo pelo site do fabricante (NVIDIA, AMD, Intel).
-- Reiniciar o processo `explorer.exe`, se for esse o caso.
-- Desconectar monitores externos extras e testar apenas com um.
-- Desfazer uma atualização recente do Windows, se a tela preta começou logo depois de instalá-la.
-- Testar o monitor/cabo em outro computador para descartar defeito físico.
-- Em notebooks, verificar se a tela preta persiste com um monitor externo (indica problema na tela ou no cabo flat interno).
+### 1. Executar o Reparo de Inicialização
 
+Acesse o **Ambiente de Recuperação do Windows (WinRE)** e execute a opção **Reparo de Inicialização** para corrigir automaticamente problemas relacionados ao processo de boot.
+
+---
+
+### 2. Reparar arquivos do sistema
+
+Abra o Prompt de Comando no WinRE e execute:
+
+```cmd
+sfc /scannow
+```
+
+Se necessário, execute também:
+
+```cmd
+DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+---
+
+### 3. Verificar a integridade do disco
+
+Execute:
+
+```cmd
+chkdsk C: /f
+```
+
+Caso seja solicitado, reinicie o computador para concluir a verificação.
+
+---
+
+### 4. Reparar o carregador de inicialização
+
+Se houver suspeita de corrupção do BCD ou do Boot Manager, utilize as ferramentas de reparo disponíveis no Ambiente de Recuperação do Windows.
+
+---
+
+### 5. Desinstalar atualizações recentes
+
+Se o problema começou após uma atualização do Windows, remova a atualização em:
+
+**Configurações → Windows Update → Histórico de atualizações → Desinstalar atualizações**
+
+ou utilize a opção disponível no Ambiente de Recuperação.
+
+---
+
+### 6. Restaurar o Sistema
+
+Utilize um ponto de restauração criado anteriormente para retornar o Windows a um estado funcional.
+
+---
+
+### 7. Verificar o hardware
+
+Confirme se o SSD/HD é reconhecido pela BIOS/UEFI e verifique o encaixe de cabos e componentes internos, quando aplicável.
+
+---
+
+### 8. Redefinir ou reinstalar o Windows
+
+Se nenhuma das soluções anteriores resolver o problema, considere redefinir o Windows mantendo os arquivos pessoais ou realizar uma instalação limpa do sistema operacional.
 ---
 
 ## 🧰 Ferramentas utilizadas
 
-- Gerenciador de Tarefas
-- Visualizador de Eventos
-- Gerenciador de Dispositivos
-- Atalhos de teclado do Windows (`Win + Ctrl + Shift + B`, `Win + P`)
+- Ambiente de Recuperação do Windows (Windows Recovery Environment - WinRE)
+- Reparo de Inicialização (Startup Repair)
+- Prompt de Comando (CMD)
+- Verificador de Arquivos do Sistema (`sfc`)
+- Deployment Image Servicing and Management (`DISM`)
+- Check Disk (`chkdsk`)
+- BIOS/UEFI
+- Visualizador de Eventos (`eventvwr.msc`)
 
 ---
 
 ## 💡 Boas práticas
 
-- Manter os drivers de vídeo atualizados direto pelo site do fabricante, não só pelo Windows Update.
-- Evitar interromper atualizações do Windows no meio do processo.
-- Verificar periodicamente os cabos de vídeo em máquinas de mesa (mau contato é uma causa comum e simples).
+- Manter o Windows e os drivers sempre atualizados.
+- Criar pontos de restauração antes de alterações importantes no sistema.
+- Realizar backups periódicos dos dados.
+- Desligar o computador corretamente, evitando interrupções forçadas durante atualizações.
+- Monitorar a integridade do SSD/HD para identificar falhas precocemente.
+- Verificar regularmente a saúde do hardware e manter a BIOS/UEFI atualizada, quando recomendado pelo fabricante.
 
 ---
 
 ## 📚 Referências
 
-- Microsoft Learn
-- Documentação oficial da Microsoft
+- Microsoft Learn – Troubleshoot Windows startup issues
+- Microsoft Learn – Windows Recovery Environment (WinRE)
+- Microsoft Learn – System File Checker (SFC)
+- Microsoft Learn – DISM
+- Microsoft Support – Startup Repair
