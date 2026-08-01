@@ -246,7 +246,7 @@ Confirme se o SSD/HD é reconhecido pela BIOS/UEFI e verifique o encaixe de cabo
 Se nenhuma das soluções anteriores resolver o problema, considere redefinir o Windows mantendo os arquivos pessoais ou realizar uma instalação limpa do sistema operacional.
 ---
 
-## 🧰 Ferramentas utilizadas
+## Ferramentas utilizadas
 
 - Ambiente de Recuperação do Windows (Windows Recovery Environment - WinRE)
 - Reparo de Inicialização (Startup Repair)
@@ -259,7 +259,7 @@ Se nenhuma das soluções anteriores resolver o problema, considere redefinir o 
 
 ---
 
-## 💡 Boas práticas
+## Boas práticas
 
 - Manter o Windows e os drivers sempre atualizados.
 - Criar pontos de restauração antes de alterações importantes no sistema.
@@ -270,7 +270,7 @@ Se nenhuma das soluções anteriores resolver o problema, considere redefinir o 
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Microsoft Learn – Troubleshoot Windows startup issues
 - Microsoft Learn – Windows Recovery Environment (WinRE)
