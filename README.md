@@ -10,85 +10,86 @@
 
 </p>
 
-# 🖥️ Windows Troubleshooting Guide
+# Windows Troubleshooting Guide
 
-Guia prático de resolução de problemas do Windows, documentando procedimentos utilizados em ambientes de Suporte Técnico, Service Desk e Infraestrutura.
+Uma base de conhecimento técnica que documenta procedimentos de solução de problemas do Windows, diagnósticos e soluções comumente realizados em ambientes de Suporte de TI e Service Desk.
 
----
-
-## 📌 Objetivo
-
-Este repositório reúne problemas comuns encontrados no Windows e suas respectivas soluções, utilizando ferramentas nativas do sistema e boas práticas de troubleshooting.
-
-O objetivo é desenvolver habilidades práticas em:
-
-- Diagnóstico de problemas
-- Resolução de incidentes
-- Administração do Windows
-- Documentação técnica
-- Atendimento de suporte
+Este projeto foca na resolução prática de problemas usando ferramentas nativas do Windows, utilitários de linha de comando e práticas de administração de sistemas.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas
+Este repositório documenta incidentes comuns do Windows e suas resoluções, aplicando metodologias de solução de problemas usadas em ambientes profissionais de TI.
+
+Os principais objetivos são:
+
+- Desenvolver habilidades de solução de problemas
+- Praticar administração do Windows
+- Entender diagnósticos do sistema
+- Criar documentação técnica
+- Simular atividades de Service Desk
+- Construir um portfólio profissional de TI
+
+---
+
+# Ambiente de Laboratório
+
+Os cenários de solução de problemas são testados em ambientes controlados usando:
+
+- Máquinas Virtuais Windows 10/11
+- VirtualBox
+- Ferramentas administrativas do Windows
+- Utilitários de linha de comando
+- Ambientes de usuário local
+
+---
+
+---
+
+---
+
+# Tecnologias e Ferramentas
+
+## Sistemas Operacionais
 
 - Windows 10
 - Windows 11
-- Windows PowerShell
+
+## Ferramentas Administrativas
+
+- Ambiente de Recuperação do Windows (WinRE)
+- Visualizador de Eventos
+- Gerenciador de Dispositivos
+- Serviços
+- Editor do Registro
+- Gerenciador de Tarefas
+- Gerenciamento de Disco
+
+## Linha de Comando
+
 - Prompt de Comando (CMD)
-- Windows Recovery
-- Event Viewer
-- Device Manager
-- Services
-- Registry Editor
+- PowerShell
 
 ---
 
-## 📚 Conteúdo
+# Troubleshooting Index
 
-- BSOD (Tela Azul)
-- Windows lento
-- Disco em 100%
-- Uso elevado de memória RAM
-- Erros do Windows Update
-- Driver com problema
-- Restaurar arquivos do sistema
-- Problemas de inicialização
-- Rede sem Internet
-- DNS
-- Impressoras
-- Bluetooth
-- Áudio
-- USB
-- Firewall
-- Backup
-- Recuperação do sistema
+| Issue | Category | Status |
+|------|----------|--------|
+| Boot Loop | Startup | Completed |
+| BIOS/UEFI Issues | Firmware | Completed |
+| Windows Update Errors | Updates | In Progress |
+| Driver Problems | Hardware | Planned |
+| Blue Screen (BSOD) | System | Planned |
+| Network Connectivity | Networking | Planned |
+| DNS Issues | Networking | Planned |
+| Printer Problems | Hardware | Planned |
+| Bluetooth Issues | Hardware | Planned |
+| Audio Problems | Hardware | Planned |
+| System Recovery | Recovery | Planned |
 
 ---
 
-## 📂 Estrutura do Projeto
-
-```
-windows-troubleshooting-guide/
-
-├── bsod/
-├── windows-update/
-├── disk-100/
-├── memory-high/
-├── drivers/
-├── network/
-├── dns/
-├── printer/
-├── bluetooth/
-├── audio/
-├── firewall/
-├── backup/
-└── recovery/
-```
-
----
-
-## 📝 Modelo de Documentação
+## Modelo de Documentação
 
 Cada problema segue o mesmo padrão.
 
@@ -124,7 +125,7 @@ O que foi aprendido durante a resolução.
 
 ---
 
-## 💻 Comandos úteis
+## Comandos úteis
 
 ```powershell
 sfc /scannow
@@ -144,7 +145,7 @@ netsh winsock reset
 
 ---
 
-## 🎯 Objetivos de Aprendizado
+## Objetivos de Aprendizado
 
 - Desenvolver raciocínio de troubleshooting
 - Aprender ferramentas nativas do Windows
@@ -154,7 +155,7 @@ netsh winsock reset
 
 ---
 
-## 📈 Status
+## Status
 
 🚧 Em desenvolvimento.
 
@@ -162,6 +163,6 @@ Novos casos de troubleshooting serão adicionados continuamente.
 
 ---
 
-## 📖 Licença
+## Licença
 
 Projeto desenvolvido para fins educacionais e de portfólio.
